@@ -1,0 +1,52 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": null
+    },
+    "exported_at": "2024-01-28T12:35:27-03:00",
+    "name": "Docsaurus Egg (Vicemi)",
+    "author": "vicemi@vicemi.dev",
+    "description": "Docsaurus Egg(Egg de Vicemi)",
+    "features": null,
+    "docker_images": {
+        "Node 20": "ghcr.io\/parkervcp\/yolks:nodejs_20"
+    },
+    "file_denylist": [],
+    "startup": "cd docsaurus && {{SELECT_COMMAND}} -- --build --port {{PORT}} --host 0.0.0.0",
+    "config": {
+        "files": "{}",
+        "startup": "{\r\n    \"done\": \"change this part\"\r\n}",
+        "logs": "{}",
+        "stop": "^^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!\/bin\/bash\r\n# Docsaurus Egg\r\n#\r\n# Creado por Vicemi\r\napt update\r\napt install -y git curl yarn jq file unzip make gcc g++ ffmpeg imagemagick python python-dev libtool\r\nmkdir -p \/mnt\/server\r\ncd \/mnt\/server\r\nnpm install -g create-docusaurus@latest\r\necho -e \"Y\" | npx create-docusaurus@latest docsaurus classic # Utiliza un script interactivo para seleccionar autom\u00e1ticamente el template classic\r\necho -e \"Egg de Docsaurus\"\r\nexit 0",
+            "container": "node:18-buster-slim",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": [
+        {
+            "name": "Inicio de docsaurus",
+            "description": "Docsaurus inicio:",
+            "env_variable": "SELECT_COMMAND",
+            "default_value": "npm run serve",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|in:npm run start,yarn run start,npm run serve",
+            "field_type": "text"
+        },
+        {
+            "name": "Puerto",
+            "description": "Puerto en el que inicializara Docsaurus",
+            "env_variable": "PORT",
+            "default_value": "3000",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:20",
+            "field_type": "text"
+        }
+    ]
+}
