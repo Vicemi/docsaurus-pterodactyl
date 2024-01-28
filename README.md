@@ -4,7 +4,7 @@
 
 ## Descripción
 
-Breve descripción del proyecto.
+Este es un egg para pterodactyl, con este egg puedes instalar docsaurus en tu pterodactyl, es un egg sencillo pero funcional.
 
 ## Guía de Uso (Español)
 
@@ -43,7 +43,7 @@ En la sección de Startup de Pterodactyl, encontrarás opciones para cambiar el 
 
 ## Description
 
-Brief project description.
+This is an egg for pterodactyl, with this egg you can install docsaurus in your pterodactyl, it is a simple but functional egg.
 
 ## Usage Guide (English)
 
